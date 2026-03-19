@@ -4,17 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/lib/LanguageContext';
 import { createClient } from '@/utils/supabase/client';
+import { DAYS, DayKey, parseHoursFromSettings, formatDayHours } from '@/lib/formatHours';
 import styles from './page.module.css';
 
-const DAY_KEYS = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'] as const;
-const DB_KEY: Record<string, string> = {
-  monday:'hours_mon', tuesday:'hours_tue', wednesday:'hours_wed',
-  thursday:'hours_thu', friday:'hours_fri', saturday:'hours_sat', sunday:'hours_sun',
-};
-const FALLBACK: Record<string, string | null> = {
-  monday:'4:00 PM – 10:00 PM', tuesday: null, wednesday:'4:00 PM – 10:00 PM',
-  thursday:'4:00 PM – 10:00 PM', friday:'4:00 PM – 11:00 PM',
-  saturday:'4:00 PM – 11:00 PM', sunday:'2:30 PM – 9:00 PM',
+const DAY_FULL: Record<DayKey, string> = {
+  mon: 'monday', tue: 'tuesday', wed: 'wednesday',
+  thu: 'thursday', fri: 'friday', sat: 'saturday', sun: 'sunday',
 };
 
 type FormData = { name: string; email: string; date: string; time: string; partySize: string; specialRequests: string };
@@ -35,7 +30,7 @@ function validateReservation(form: FormData): FormErrors {
 
 export default function ReservationsPage() {
   const { t } = useLanguage();
-  const [hours, setHours] = useState<Record<string, string | null>>(FALLBACK);
+  const [hours, setHours] = useState<{ key: string; label: string; closed: boolean }[]>([]);
   const [form, setForm] = useState<FormData>({ name: '', email: '', date: '', time: '', partySize: '', specialRequests: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState(false);
@@ -44,17 +39,18 @@ export default function ReservationsPage() {
   useEffect(() => {
     const supabase = createClient();
     supabase.from('settings').select('key, value').like('key', 'hours_%').then(({ data }) => {
-      if (!data) return;
-      const map: Record<string, string | null> = { ...FALLBACK };
-      data.forEach((r: { key: string; value: string }) => {
-        const day = Object.keys(DB_KEY).find(d => DB_KEY[d] === r.key);
-        if (day) map[day] = r.value === 'Closed' ? null : r.value;
-      });
-      setHours(map);
+      const map: Record<string, string> = {};
+      (data ?? []).forEach((r: { key: string; value: string }) => { map[r.key] = r.value; });
+      const parsed = parseHoursFromSettings(map);
+      setHours(DAYS.map(day => ({
+        key: DAY_FULL[day],
+        label: formatDayHours(parsed[day].open, parsed[day].close, String(parsed[day].closed)),
+        closed: parsed[day].closed,
+      })));
     });
   }, []);
 
-  const HOURS = DAY_KEYS.map(day => ({ key: day, hours: hours[day] ?? null }));
+  const HOURS = hours;
 
   const change = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const updated = { ...form, [e.target.name]: e.target.value };
@@ -222,12 +218,15 @@ export default function ReservationsPage() {
             <div className={styles.infoCard}>
               <h3 className={styles.infoTitle}>{t.reservations.hoursTitle}</h3>
               <ul className={styles.hoursList}>
-                {HOURS.map(({ key, hours: h }) => (
-                  <li key={key} className={!h ? styles.closed : ''}>
-                    <span>{t.reservations.days[key as keyof typeof t.reservations.days]}</span>
-                    <span>{h ?? t.reservations.days.closed}</span>
-                  </li>
-                ))}
+                {HOURS.length > 0
+                  ? HOURS.map(({ key, label, closed }) => (
+                    <li key={key} className={closed ? styles.closed : ''}>
+                      <span>{t.reservations.days[key as keyof typeof t.reservations.days]}</span>
+                      <span>{label}</span>
+                    </li>
+                  ))
+                  : DAYS.map(d => <li key={d} style={{ opacity: 0.3 }}><span>—</span><span>—</span></li>)
+                }
               </ul>
               <p className={styles.hoursNote}>
                 {t.reservations.hoursNote}{' '}

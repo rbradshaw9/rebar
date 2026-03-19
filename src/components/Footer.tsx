@@ -1,22 +1,36 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/lib/LanguageContext';
 import EditableText from '@/components/EditableText';
+import { createClient } from '@/utils/supabase/client';
+import { DAYS, DayKey, parseHoursFromSettings, formatDayHours } from '@/lib/formatHours';
 import styles from './Footer.module.css';
+
+const DAY_KEYS_TO_FULL: Record<DayKey, string> = {
+  mon: 'monday', tue: 'tuesday', wed: 'wednesday',
+  thu: 'thursday', fri: 'friday', sat: 'saturday', sun: 'sunday',
+};
 
 export default function Footer() {
   const { t, lang } = useLanguage();
   const year = new Date().getFullYear();
 
-  const HOURS = [
-    { dayKey: 'monday', hours: '4:00 PM – 10:00 PM', closed: false },
-    { dayKey: 'tuesday', hours: t.reservations.days.closed, closed: true },
-    { dayKey: 'wednesday', hours: '4:00 PM – 10:00 PM', closed: false },
-    { dayKey: 'thursday', hours: '4:00 PM – 10:00 PM', closed: false },
-    { dayKey: 'friday', hours: '4:00 PM – 11:00 PM', closed: false },
-    { dayKey: 'saturday', hours: '4:00 PM – 11:00 PM', closed: false },
-    { dayKey: 'sunday', hours: '2:30 PM – 9:00 PM', closed: false },
-  ];
+  const [hoursDisplay, setHoursDisplay] = useState<{ dayKey: string; label: string; closed: boolean }[]>([]);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.from('settings').select('key, value').like('key', 'hours_%').then(({ data }) => {
+      const map: Record<string, string> = {};
+      (data ?? []).forEach((r: { key: string; value: string }) => { map[r.key] = r.value; });
+      const parsed = parseHoursFromSettings(map);
+      setHoursDisplay(DAYS.map(day => ({
+        dayKey: DAY_KEYS_TO_FULL[day],
+        label: formatDayHours(parsed[day].open, parsed[day].close, String(parsed[day].closed)),
+        closed: parsed[day].closed,
+      })));
+    });
+  }, []);
 
   const navLinks = [
     [t.nav.menu, '/menu'],
@@ -78,16 +92,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours */}
+          {/* Hours — live from Supabase */}
           <div className={styles.col}>
             <h4 className={styles.colTitle}>{t.footer.hours}</h4>
             <ul className={styles.hours}>
-              {HOURS.map(({ dayKey, hours, closed }) => (
-                <li key={dayKey} className={closed ? styles.closed : ''}>
-                  <span>{(t.reservations.days as Record<string, string>)[dayKey]}</span>
-                  <span>{hours}</span>
-                </li>
-              ))}
+              {hoursDisplay.length > 0
+                ? hoursDisplay.map(({ dayKey, label, closed }) => (
+                  <li key={dayKey} className={closed ? styles.closed : ''}>
+                    <span>{(t.reservations.days as Record<string, string>)[dayKey]}</span>
+                    <span>{label}</span>
+                  </li>
+                ))
+                : /* skeleton while loading */ DAYS.map(day => (
+                  <li key={day} style={{ opacity: 0.3 }}>
+                    <span>—</span><span>—</span>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 

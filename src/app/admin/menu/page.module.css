@@ -44,10 +44,28 @@
 .pill { font-family: var(--font-label); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; cursor: pointer; display: inline-block; transition: opacity 0.15s; color: var(--cream-white); }
 .pill:hover { opacity: 0.75; }
 
-/* Hours grid */
-.hoursGrid { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; }
-.dayRow { display: grid; grid-template-columns: 130px 1fr; gap: 1rem; align-items: center; }
-.dayLabel { font-family: var(--font-label); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+/* Buttons secondary */
+.btnSecondary { font-family: var(--font-label); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; background: transparent; color: var(--ember-gold); border: 1px solid var(--ember-gold); padding: 0.65rem 1.4rem; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.btnSecondary:hover:not(:disabled) { background: var(--ember-gold); color: var(--rebar-black); }
+.btnSecondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Hours grid — structured time pickers */
+.hoursGrid { display: flex; flex-direction: column; gap: 0.75rem; max-width: 680px; }
+.dayRow { background: var(--bg-card); border: 1px solid var(--border-card); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; transition: border-color 0.15s; }
+.dayRow:hover { border-color: var(--border-subtle); }
+.dayRowClosed { border-color: var(--border-card) !important; }
+.dayMeta { display: flex; flex-direction: column; gap: 0.4rem; min-width: 110px; }
+.dayLabel { font-family: var(--font-label); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-white); }
+.closedToggle { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-label); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; }
+.closedToggle input { accent-color: var(--ember-gold); }
+.timePickers { display: flex; align-items: center; gap: 0.75rem; flex: 1; transition: opacity 0.2s; }
+.timeLabel { display: flex; flex-direction: column; gap: 0.3rem; font-family: var(--font-label); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+.timeInput { background: var(--bg-elevated); border: 1px solid var(--border-card); color: var(--cream-white); padding: 8px 10px; font-family: var(--font-sans); font-size: 0.9rem; outline: none; transition: border-color 0.15s; color-scheme: dark; }
+.timeInput:focus:not(:disabled) { border-color: var(--ember-gold); }
+.timeInput:disabled { opacity: 0.35; cursor: not-allowed; }
+.timeSep { color: var(--text-dim); font-size: 1rem; padding-top: 1.2rem; }
+.gmbNote { background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 1rem 1.25rem; font-size: 0.9rem; color: var(--stone-sand); }
+.gmbNote code { font-family: monospace; font-size: 0.8rem; color: var(--ember-gold); }
 .hint { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem; font-style: italic; }
 
 /* States */
