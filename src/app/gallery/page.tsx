@@ -9,14 +9,14 @@ const PHOTOS = [
   { src: '/images/instagram/rebar_cocktail_01.jpg', alt: 'Handcrafted cocktails at Rebar', cat: 'cocktails' },
   { src: '/images/instagram/rebar_steak_01.jpg', alt: 'Prime cuts from the grill', cat: 'food' },
   { src: '/images/instagram/rebar_atmosphere_01.jpg', alt: 'Rebar dining atmosphere', cat: 'ambiance' },
-  { src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=600&fit=crop', alt: 'Grilled meats', cat: 'food' },
-  { src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=600&fit=crop', alt: 'Bar ambiance', cat: 'ambiance' },
-  { src: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=600&h=600&fit=crop', alt: 'Cocktail detail', cat: 'cocktails' },
-  { src: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&h=600&fit=crop', alt: 'Live music event', cat: 'events' },
-  { src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=600&fit=crop', alt: 'Food presentation', cat: 'food' },
-  { src: 'https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=600&h=600&fit=crop', alt: 'Wine service', cat: 'cocktails' },
-  { src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=600&fit=crop', alt: 'Dining room', cat: 'ambiance' },
-  { src: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&h=600&fit=crop', alt: 'Warm bar lighting', cat: 'ambiance' },
+  { src: '/images/instagram/rebar_food_screenshot_01.jpg', alt: 'Rebar menu highlights', cat: 'food' },
+  { src: '/images/instagram/rebar_atmosphere_01.jpg', alt: 'Bar ambiance at Rebar', cat: 'ambiance' },
+  { src: '/images/instagram/rebar_cocktail_01.jpg', alt: 'Craft cocktail detail', cat: 'cocktails' },
+  { src: '/images/instagram/rebar_steak_01.jpg', alt: 'Events and dining at Rebar', cat: 'events' },
+  { src: '/images/instagram/rebar_food_01.jpg', alt: 'Chef-driven food presentation', cat: 'food' },
+  { src: '/images/instagram/rebar_cocktail_01.jpg', alt: 'Handcrafted drinks', cat: 'cocktails' },
+  { src: '/images/instagram/rebar_atmosphere_01.jpg', alt: 'Rebar dining room', cat: 'ambiance' },
+  { src: '/images/instagram/rebar_food_screenshot_01.jpg', alt: 'Rebar bar glow', cat: 'ambiance' },
 ];
 
 export default function GalleryPage() {

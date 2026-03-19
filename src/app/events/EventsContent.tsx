@@ -33,7 +33,7 @@ export default function EventsContent({ upcoming, past }: { upcoming: Event[] | 
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroBg}>
-          <Image src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1400&h=500&fit=crop" alt="Events hero" fill className={styles.heroBgImg} />
+          <Image src="/images/instagram/rebar_atmosphere_01.jpg" alt="Events at Rebar" fill className={styles.heroBgImg} />
           <div className={styles.heroOverlay} />
         </div>
         <div className={styles.heroContent}>
