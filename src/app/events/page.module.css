@@ -1,0 +1,53 @@
+.page { min-height: 100vh; }
+.hero { position: relative; height: 420px; display: flex; align-items: flex-end; padding-bottom: 60px; overflow: hidden; }
+.heroBg { position: absolute; inset: 0; }
+.heroBgImg { object-fit: cover; }
+.heroOverlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.85) 100%); }
+.heroContent { position: relative; z-index: 2; padding: 0 var(--container-padding); max-width: var(--container-max); margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 0.6rem; }
+.heroContent h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+.heroSub { font-family: var(--font-accent); font-style: italic; color: var(--stone-sand); font-size: 1.1rem; }
+.sectionH2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin: 0.75rem 0 2.5rem; }
+
+/* Weekly */
+.weekly { padding: var(--section-padding) 0; background: var(--bg-secondary); }
+.weeklyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-card); }
+@media (min-width: 860px) { .weeklyGrid { grid-template-columns: repeat(4, 1fr); } }
+.weeklyCard { background: var(--bg-card); padding: 2rem 1.5rem; border-top: 3px solid var(--accent, var(--ember-gold)); display: flex; flex-direction: column; gap: 0.75rem; }
+.dayBadge { font-family: var(--font-label); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, var(--ember-gold)); }
+.weeklyName { font-family: var(--font-display); font-size: 1.2rem; }
+.weeklyDesc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
+.weeklyCta { font-family: var(--font-label); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; color: var(--ember-gold); margin-top: 0.5rem; transition: opacity var(--transition-fast); }
+.weeklyCta:hover { opacity: 0.7; }
+
+/* Special Events */
+.special { padding: var(--section-padding) 0; background: var(--rebar-black); }
+.eventsGrid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 720px) { .eventsGrid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .eventsGrid { grid-template-columns: repeat(3, 1fr); } }
+.eventCard {}
+.eventImgWrap { position: relative; height: 220px; overflow: hidden; }
+.eventImg { object-fit: cover; }
+.eventBody { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.eventDate { font-family: var(--font-label); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember-gold); }
+.eventTitle { font-family: var(--font-display); font-size: 1.3rem; }
+.eventDesc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
+.eventActions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.noEvents { text-align: center; padding: 4rem 0; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; color: var(--text-muted); }
+.noEvents a { color: var(--ember-gold); }
+
+/* Private CTA */
+.privateCta { padding: var(--section-padding) 0; background: var(--bg-secondary); }
+.privateBox {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 4rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+.privateH2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.privateDesc { color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
