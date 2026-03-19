@@ -29,12 +29,12 @@
 .waBtn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 14px 28px;
-  background: rgba(37,211,102,0.1); border: 1px solid #25D366;
-  color: #25D366;
+  background: rgba(37,211,102,0.1); border: 1px solid var(--whatsapp-green);
+  color: var(--whatsapp-green);
   font-family: var(--font-label); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
   transition: all var(--transition-base);
 }
-.waBtn:hover { background: #25D366; color: var(--rebar-black); }
+.waBtn:hover { background: var(--whatsapp-green); color: var(--rebar-black); }
 
 .emailCta {
   display: flex; align-items: center; gap: 0.6rem;
@@ -50,7 +50,7 @@
   border-top: 2px solid var(--ember-gold);
 }
 .privateTitle { font-size: 1.4rem; }
-.privateText { color: var(--text-muted); font-size: 0.9rem; line-height: 1.75; }
+.privateText { color: var(--text-muted); font-size: 1rem; line-height: 1.75; }
 
 /* Info Panel */
 .infoPanel { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -58,13 +58,13 @@
 .infoTitle { font-family: var(--font-label); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ember-gold); }
 
 .hoursList { display: flex; flex-direction: column; gap: 0.5rem; }
-.hoursList li { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.82rem; color: var(--text-muted); }
+.hoursList li { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.875rem; color: var(--text-muted); }
 .hoursList li span:first-child { color: var(--stone-sand); min-width: 90px; }
 .closed { opacity: 0.4; }
-.hoursNote { font-size: 0.78rem; color: var(--text-dim); }
+.hoursNote { font-size: 0.8rem; color: var(--text-dim); }
 .hoursNote a { color: var(--ember-gold); }
 
-.address { font-style: normal; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+.address { font-style: normal; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
 .mapEmbed { overflow: hidden; }
 
 /* Reservation Form */
@@ -74,7 +74,7 @@
   margin: 0 auto;
 }
 .formSection h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 0.5rem; }
-.formSub { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+.formSub { color: var(--text-muted); margin-bottom: 2rem; font-size: 1rem; }
 .formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 @media (max-width: 600px) { .formGrid { grid-template-columns: 1fr; } }
 .fullCol { grid-column: 1 / -1; }
@@ -86,15 +86,15 @@
 .formInput {
   background: var(--bg-elevated); border: 1px solid var(--border-card);
   color: var(--cream-white); padding: 12px 14px; font-family: var(--font-sans);
-  font-size: 0.9rem; width: 100%; outline: none; transition: border-color 0.15s;
+  font-size: 1rem; width: 100%; outline: none; transition: border-color 0.15s;
 }
 .formInput:focus { border-color: var(--ember-gold); }
-.formInput.hasError { border-color: #e05252; }
-.fieldError { color: #e05252; font-size: 0.78rem; margin-top: 0.3rem; display: block; }
+.formInput.hasError { border-color: var(--error-red); }
+.fieldError { color: var(--error-red); font-size: 0.78rem; margin-top: 0.3rem; display: block; }
 .formTextarea {
   background: var(--bg-elevated); border: 1px solid var(--border-card);
   color: var(--cream-white); padding: 12px 14px; font-family: var(--font-sans);
-  font-size: 0.9rem; width: 100%; outline: none; resize: vertical; transition: border-color 0.15s;
+  font-size: 1rem; width: 100%; outline: none; resize: vertical; transition: border-color 0.15s;
 }
 .formTextarea:focus { border-color: var(--ember-gold); }
 .formSuccess {
@@ -104,7 +104,7 @@
 .formSuccessIcon { font-size: 2.5rem; margin-bottom: 1rem; }
 .formSuccess h2 { font-size: 1.8rem; margin-bottom: 0.75rem; }
 .formSuccess p { color: var(--text-muted); margin-bottom: 1.5rem; }
-.formErrMsg { color: #e05252; font-size: 0.875rem; margin-top: 1rem; }
+.formErrMsg { color: var(--error-red); font-size: 0.875rem; margin-top: 1rem; }
 .divider {
   display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0;
   color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.1em;

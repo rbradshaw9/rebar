@@ -30,7 +30,7 @@
 .eventBody { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
 .eventDate { font-family: var(--font-label); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ember-gold); }
 .eventTitle { font-family: var(--font-display); font-size: 1.3rem; }
-.eventDesc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
+.eventDesc { font-size: 1rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
 .eventActions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
 .noEvents { text-align: center; padding: 4rem 0; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; color: var(--text-muted); }
 .noEvents a { color: var(--ember-gold); }
