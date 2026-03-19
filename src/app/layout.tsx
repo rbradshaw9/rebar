@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   keywords: 'restaurant Aguadilla PR, cocktail bar Aguadilla, upscale dining Puerto Rico, gastronomia aguadilla, rebar PR, rebar aguadilla, restaurante aguadilla, cocteles aguadilla, best restaurant northwest puerto rico',
   metadataBase: new URL('https://rebarpr.com'),
   alternates: { canonical: 'https://rebarpr.com' },
+  icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
   openGraph: {
     title: 'Rebar Gastronomía & Cocteles | Aguadilla, PR',
     description: 'Chef-driven cuisine and handcrafted cocktails in Aguadilla, Puerto Rico. Open Mon & Wed–Sun from 4PM.',
