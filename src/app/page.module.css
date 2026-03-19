@@ -69,7 +69,7 @@
 .heroTagline {
   font-family: var(--font-accent);
   font-style: italic;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: var(--stone-sand);
   max-width: 480px;
   line-height: 1.65;
@@ -185,7 +185,7 @@
 }
 .featuredBody { padding: 1.5rem; }
 .featuredName { font-size: 1.4rem; margin-bottom: 0.5rem; }
-.featuredDesc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+.featuredDesc { font-size: 1rem; color: var(--text-muted); line-height: 1.7; }
 .sectionCta { text-align: center; margin-top: 3rem; }
 
 /* ── GALLERY TEASER ── */
@@ -259,7 +259,7 @@
   margin-bottom: 0.75rem;
 }
 .weeklyTitle { font-size: 1.1rem; margin-bottom: 0.5rem; }
-.weeklyDesc { font-size: 0.825rem; color: var(--text-muted); line-height: 1.65; }
+.weeklyDesc { font-size: 1rem; color: var(--text-muted); line-height: 1.65; }
 
 .eventsGrid {
   display: grid;
@@ -282,7 +282,7 @@
   margin-bottom: 0.5rem;
 }
 .eventTitle { font-size: 1.25rem; margin-bottom: 0.5rem; }
-.eventDesc { font-size: 0.85rem; color: var(--text-muted); }
+.eventDesc { font-size: 1rem; color: var(--text-muted); }
 
 /* ── RESERVE CTA ── */
 .reserveCta {
