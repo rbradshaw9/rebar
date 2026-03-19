@@ -43,7 +43,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroBg}>
-          <Image src="/images/instagram/rebar_atmosphere_01.jpg" alt="Rebar bar interior" fill className={styles.heroBgImg} />
+          <Image src="/images/instagram/rebar_interior_01.jpg" alt="Rebar bar and dining room interior" fill className={styles.heroBgImg} />
           <div className={styles.heroOverlay} />
         </div>
         <div className={styles.heroContent}>
