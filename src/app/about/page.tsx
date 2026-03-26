@@ -95,7 +95,7 @@ export default function AboutPage() {
       {/* Atmosphere */}
       <section className={styles.atmosphere}>
         <div className={styles.atmosphereInner}>
-          <Image src="/images/instagram/rebar_steak_01.jpg" alt="Rebar atmosphere" fill className={styles.atmosphereBg} />
+          <Image src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&h=600&fit=crop" alt="Rebar atmosphere" fill className={styles.atmosphereBg} />
           <div className={styles.atmosphereOverlay} />
           <div className={`container ${styles.atmosphereContent}`}>
             <span className="label">{t.about.atmosphereLabel}</span>

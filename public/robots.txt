@@ -1,8 +1,3 @@
+# Site is under construction — block ALL crawlers until launch
 User-agent: *
-Allow: /
-
-# Block admin from indexing
-Disallow: /admin
-Disallow: /api/
-
-Sitemap: https://rebarpr.com/sitemap.xml
+Disallow: /

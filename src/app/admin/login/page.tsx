@@ -3,7 +3,7 @@ import { useState, FormEvent, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 
-function LoginForm() {
+function AdminLoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -36,37 +36,37 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <input
-        id="admin-password"
-        type="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        placeholder="Password"
-        className={styles.input}
-        required
-        autoFocus
-        autoComplete="current-password"
-      />
-      {error && <p className={styles.error}>{error}</p>}
-      <button type="submit" className={styles.btn} disabled={loading}>
-        {loading ? 'Signing in…' : 'Sign In'}
-      </button>
-    </form>
-  );
-}
-
-export default function AdminLoginPage() {
-  return (
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.logoMark}>⬡</div>
         <h1 className={styles.title}>Rebar Admin</h1>
         <p className={styles.subtitle}>Enter your password to continue</p>
-        <Suspense fallback={<div className={styles.form} />}>
-          <LoginForm />
-        </Suspense>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            id="admin-password"
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Password"
+            className={styles.input}
+            required
+            autoFocus
+            autoComplete="current-password"
+          />
+          {error && <p className={styles.error}>{error}</p>}
+          <button type="submit" className={styles.btn} disabled={loading}>
+            {loading ? 'Signing in…' : 'Sign In'}
+          </button>
+        </form>
       </div>
     </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <AdminLoginForm />
+    </Suspense>
   );
 }
