@@ -198,7 +198,7 @@ export default function PreviewWrapper() {
       {gateOpen && (
         <div style={{
           position: 'fixed', inset: 0, zIndex: 99999,
-          background: 'rgba(0,0,0,0.96)',
+          background: 'rgba(4, 3, 2, 0.72)',
           backdropFilter: 'blur(16px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: '24px',
