@@ -491,7 +491,7 @@ export default function PreviewWrapper() {
                     </ul>
 
                     <a
-                      href={`https://saborweb.com/api/checkout?pkg=${plan.key}`}
+                      href={`https://saborweb.com/api/checkout?pkg=${plan.key}&client=rebar`}
                       className="sw-plan-btn"
                       style={{
                         display: 'block', textAlign: 'center', padding: '12px 20px',
