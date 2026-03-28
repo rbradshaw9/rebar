@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body style={process.env.NEXT_PUBLIC_PREVIEW_MODE === 'true' ? { paddingTop: '44px' } : undefined}>
+      <body style={{ paddingTop: '44px' }}>
         <AdminEditProvider>
           <LanguageProvider>
             <PreviewBanner />

@@ -1,8 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-// Render nothing when the site is live (NEXT_PUBLIC_PREVIEW_MODE !== 'true')
-const IS_PREVIEW = process.env.NEXT_PUBLIC_PREVIEW_MODE === 'true';
 
 // ─── PLAN DATA ────────────────────────────────────────────────────────────────
 
@@ -153,13 +151,9 @@ export default function PreviewWrapper() {
 
   // Show gate on first visit per session
   useEffect(() => {
-    if (!IS_PREVIEW) return; // short-circuit when live
     const seen = sessionStorage.getItem('rebar-preview-seen');
     if (!seen) setGateOpen(true);
   }, []);
-
-  // Nothing renders when site is live
-  if (!IS_PREVIEW) return null;
 
   const enterPreview = () => {
     sessionStorage.setItem('rebar-preview-seen', '1');
