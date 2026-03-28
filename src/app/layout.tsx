@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/lib/LanguageContext';
 import { AdminEditProvider } from '@/lib/AdminEditContext';
 import AdminEditBar from '@/components/AdminEditBar';
+import PreviewBanner from '@/components/PreviewBanner';
 
 export const metadata: Metadata = {
   title: 'Rebar Gastronomía & Cocteles | Upscale Restaurant & Cocktail Bar in Aguadilla, PR',
@@ -82,9 +83,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body>
+      <body style={{ paddingTop: '44px' }}>
         <AdminEditProvider>
           <LanguageProvider>
+            <PreviewBanner />
             <Nav />
             <main>{children}</main>
             <Footer />

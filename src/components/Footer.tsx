@@ -130,7 +130,13 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p>© {year} {t.footer.copyright}</p>
-          <p className={styles.credit}>Aguadilla, Puerto Rico</p>
+          <p className={styles.credit}>
+            Aguadilla, Puerto Rico
+            <span style={{ margin: '0 8px', opacity: 0.3 }}>·</span>
+            <a href="https://saborweb.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', opacity: 0.5, transition: 'opacity 0.2s' }} onMouseEnter={e => (e.currentTarget.style.opacity = '1')} onMouseLeave={e => (e.currentTarget.style.opacity = '0.5')}>
+              Site by Sabor Web
+            </a>
+          </p>
         </div>
       </div>
     </footer>
