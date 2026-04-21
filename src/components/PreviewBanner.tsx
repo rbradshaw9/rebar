@@ -94,6 +94,8 @@ const PLANS = [
   },
 ];
 
+const CLAIM_URL = 'https://saborweb.com/claim/rebar';
+
 // ─── COPY ─────────────────────────────────────────────────────────────────────
 
 const COPY = {
@@ -158,6 +160,10 @@ export default function PreviewWrapper() {
   const enterPreview = () => {
     sessionStorage.setItem('rebar-preview-seen', '1');
     setGateOpen(false);
+  };
+
+  const openClaimPage = () => {
+    window.location.href = CLAIM_URL;
   };
 
   const c = COPY;
@@ -280,7 +286,7 @@ export default function PreviewWrapper() {
             {/* Secondary CTA */}
             <button
               className="sw-claim-link"
-              onClick={() => { enterPreview(); setPlanModalOpen(true); }}
+              onClick={openClaimPage}
               style={{
                 fontFamily: fontSans, fontSize: '12px', fontWeight: 600,
                 letterSpacing: '0.1em', textTransform: 'uppercase',
@@ -317,7 +323,7 @@ export default function PreviewWrapper() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
             <button
               className="sw-banner-cta"
-              onClick={() => setPlanModalOpen(true)}
+              onClick={openClaimPage}
               style={{
                 background: '#1C1208', color: gold,
                 padding: '7px 18px', borderRadius: '4px',
@@ -485,7 +491,7 @@ export default function PreviewWrapper() {
                     </ul>
 
                     <a
-                      href={`https://saborweb.com/api/checkout?pkg=${plan.key}&client=rebar`}
+                      href={CLAIM_URL}
                       className="sw-plan-btn"
                       style={{
                         display: 'block', textAlign: 'center', padding: '12px 20px',
